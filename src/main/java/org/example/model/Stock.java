@@ -21,6 +21,10 @@ public class Stock {
     @Column(name = "QUANTITY")
     private int Quantity;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "STORE_ID")
+    private Store store;
+
     public Stock() {
     }
 
@@ -64,17 +68,25 @@ public class Stock {
         Quantity = quantity;
     }
 
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Stock stock = (Stock) o;
-        return id == stock.id && Price == stock.Price && Quantity == stock.Quantity && Objects.equals(Name, stock.Name);
+        return id == stock.id && Price == stock.Price && Quantity == stock.Quantity && Objects.equals(Name, stock.Name) && Objects.equals(store, stock.store);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, Name, Price, Quantity);
+        return Objects.hash(id, Name, Price, Quantity, store);
     }
 
     @Override
@@ -84,6 +96,7 @@ public class Stock {
                 ", Name='" + Name + '\'' +
                 ", Price=" + Price +
                 ", Quantity=" + Quantity +
+                ", store=" + store +
                 '}';
     }
 }
