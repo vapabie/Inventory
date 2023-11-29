@@ -1,10 +1,10 @@
 package org.example.controller;
 
+import org.example.dto.StockDto;
 import org.example.model.Stock;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.example.service.StockService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,9 @@ import java.util.List;
 @RequestMapping("/api")
 public class StockController {
 
+    @Autowired
+    StockService stockService;
+
     ArrayList<Stock> stocks;
 
     @GetMapping("/init")
@@ -20,6 +23,7 @@ public class StockController {
         stocks = new ArrayList<>();
 
         stocks.add(new Stock(1, "egg", 70, 720));
+        stocks.add(new Stock(2, "milk", 302, 120));
 
         return "Success";
     }
@@ -31,14 +35,20 @@ public class StockController {
     }
 
     @GetMapping("/getbyname/{Name}")
-    public List<Stock> getbyName(@PathVariable String Name){
-        List<Stock> found = stocks.stream()
+    public List<StockDto> getbyName(@PathVariable String Name){
+        /*List<Stock> found = stocks.stream()
                 .filter(x -> x.getName().equals(Name))
                 .toList();
 
-        return found;
+        return found;*/
+        return stockService.findAllByName(Name);
     }
 
+    @PostMapping("/addstock")
+    public List<StockDto> addStock(@RequestBody StockDto stockDto){
+        stockService.saveStock(stockDto);
+        return stockService.findAll();
+    }
 
 
 
