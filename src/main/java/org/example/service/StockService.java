@@ -9,7 +9,7 @@ public interface StockService {
 
     List<StockDto> findAll();
 
-    StockDto findbyId(Integer id);
+    StockDto findById(Integer id);
 
     StockDto saveStock(StockDto stockDto);
 
