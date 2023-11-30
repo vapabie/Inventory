@@ -34,7 +34,7 @@ public class StockController {
         return s;
     }
 
-    @GetMapping("/getbyname/{Name}")
+    @GetMapping("/getbyname/{name}")
     public List<StockDto> getbyName(@PathVariable String name){
         /*List<Stock> found = stocks.stream()
                 .filter(x -> x.getName().equals(Name))
