@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface StoreRepository extends JpaRepository<Store, Integer> {
 
-    List<Store> findAllByEmailEqualsIgnoreCase(String email);
+    List<Store> findAllByCityEqualsIgnoreCase(String city);
 }
