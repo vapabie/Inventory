@@ -10,5 +10,5 @@ public interface StoreService {
 
     StoreDto saveStore(StoreDto storeDto);
 
-    List<StoreDto> findAllByAddress(String address);
+    List<StoreDto> findAllByCity(String city);
 }
