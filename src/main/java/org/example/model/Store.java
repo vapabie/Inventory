@@ -13,19 +13,22 @@ public class Store {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column(name = "CITY")
+    private String city;
     @Column(name = "ADDRESS")
-    private String Author;
+    private String address;
 
     @Column(name = "EMAIL")
-    private String Email;
+    private String email;
 
     public Store() {
     }
 
-    public Store(int id, String author, String email) {
+    public Store(int id, String city, String address, String email) {
         this.id = id;
-        Author = author;
-        Email = email;
+        this.city = city;
+        this.address = address;
+        this.email = email;
     }
 
     public int getId() {
@@ -36,20 +39,28 @@ public class Store {
         this.id = id;
     }
 
-    public String getAuthor() {
-        return Author;
+    public String getCity() {
+        return city;
     }
 
-    public void setAuthor(String author) {
-        Author = author;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     @Override
@@ -57,25 +68,21 @@ public class Store {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Store store = (Store) o;
-        return id == store.id && Objects.equals(Author, store.Author) && Objects.equals(Email, store.Email);
+        return id == store.id && Objects.equals(city, store.city) && Objects.equals(address, store.address) && Objects.equals(email, store.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, Author, Email);
+        return Objects.hash(id, city, address, email);
     }
 
     @Override
     public String toString() {
         return "Store{" +
                 "id=" + id +
-                ", Author='" + Author + '\'' +
-                ", Email='" + Email + '\'' +
+                ", city='" + city + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
-
-
-
-
-
 }
