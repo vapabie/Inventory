@@ -35,13 +35,13 @@ public class StockController {
     }
 
     @GetMapping("/getbyname/{Name}")
-    public List<StockDto> getbyName(@PathVariable String Name){
+    public List<StockDto> getbyName(@PathVariable String name){
         /*List<Stock> found = stocks.stream()
                 .filter(x -> x.getName().equals(Name))
                 .toList();
 
         return found;*/
-        return stockService.findAllByName(Name);
+        return stockService.findAllByName(name);
     }
 
     @PostMapping("/addstock")
