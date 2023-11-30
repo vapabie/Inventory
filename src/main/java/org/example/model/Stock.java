@@ -13,13 +13,13 @@ public class Stock {
     private int id;
 
     @Column(name = "NAME")
-    private String Name;
+    private String name;
 
     @Column(name = "PRICE")
-    private int Price;
+    private int price;
 
     @Column(name = "QUANTITY")
-    private int Quantity;
+    private int quantity;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "STORE_ID")
@@ -30,9 +30,9 @@ public class Stock {
 
     public Stock(int id, String name, int price, int quantity) {
         this.id = id;
-        Name = name;
-        Price = price;
-        Quantity = quantity;
+        name = name;
+        price = price;
+        quantity = quantity;
     }
 
 
@@ -45,27 +45,27 @@ public class Stock {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        name = name;
     }
 
     public int getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(int price) {
-        Price = price;
+        price = price;
     }
 
     public int getQuantity() {
-        return Quantity;
+        return quantity;
     }
 
     public void setQuantity(int quantity) {
-        Quantity = quantity;
+        quantity = quantity;
     }
 
     public Store getStore() {
@@ -81,21 +81,21 @@ public class Stock {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Stock stock = (Stock) o;
-        return id == stock.id && Price == stock.Price && Quantity == stock.Quantity && Objects.equals(Name, stock.Name) && Objects.equals(store, stock.store);
+        return id == stock.id && price == stock.price && quantity == stock.quantity && Objects.equals(name, stock.name) && Objects.equals(store, stock.store);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, Name, Price, Quantity, store);
+        return Objects.hash(id, name, price, quantity, store);
     }
 
     @Override
     public String toString() {
         return "Stock{" +
                 "id=" + id +
-                ", Name='" + Name + '\'' +
-                ", Price=" + Price +
-                ", Quantity=" + Quantity +
+                ", Name='" + name + '\'' +
+                ", Price=" + price +
+                ", Quantity=" + quantity +
                 ", store=" + store +
                 '}';
     }
