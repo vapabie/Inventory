@@ -9,6 +9,8 @@ public class StockDto {
     private int price;
     private int quantity;
 
+    private StoreDto storeDto;
+
     public StockDto(){
 
     }
