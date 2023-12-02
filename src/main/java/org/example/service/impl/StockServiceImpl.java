@@ -4,6 +4,7 @@ import org.example.dto.StockDto;
 import org.example.model.Stock;
 import org.example.repository.StockRepository;
 import org.example.service.StockService;
+import org.example.service.mapper.StockMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +16,12 @@ public class StockServiceImpl implements StockService {
     @Autowired
     StockRepository stockRepository;
 
+    @Autowired
+    StockMapper stockMapper;
+
     @Override
     public List<StockDto> findAll(){
-        List<Stock> entities = stockRepository.findAll();
+       /* List<Stock> entities = stockRepository.findAll();
         List<StockDto> dtos = new ArrayList<>();
 
         for( Stock s : entities){
@@ -25,23 +29,32 @@ public class StockServiceImpl implements StockService {
 
         }
 
-        return dtos;
+        return dtos;*/
+
+        return stockMapper.entityListtoDtoList(stockRepository.findAll());
     }
 
     @Override
     public StockDto findById(Integer id){
         Stock entity = stockRepository.getReferenceById(id);
 
-        return new StockDto(entity.getId(), entity.getName(), entity.getPrice(), entity.getQuantity());
+        StockDto stockDto = stockMapper.entityToDto(entity);
+
+        return stockDto;
 
     }
 
     @Override
     public StockDto saveStock(StockDto stockDto){
-        Stock entity = new Stock(stockDto.getId(), stockDto.getName(), stockDto.getPrice(), stockDto.getQuantity());
+        /*Stock entity = new Stock(stockDto.getId(), stockDto.getName(), stockDto.getPrice(), stockDto.getQuantity());
 
         return new StockDto((entity.getId()), entity.getName(),entity.getPrice(), entity.getQuantity());
+        */
 
+        Stock stock = stockRepository.save(
+                stockMapper.dtoToEntity(stockDto)
+        );
+        return stockMapper.entityToDto(stock);
     }
 
     @Override
