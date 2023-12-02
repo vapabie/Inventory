@@ -45,6 +45,23 @@ public class StockServiceImpl implements StockService {
     }
 
     @Override
+    public void deleteStock(Integer id) {
+        stockRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateStock(StockDto stockDto) {
+        Stock existingStock = stockRepository.findById(stockDto.getId())
+                .orElseThrow(() -> new RuntimeException("Stock not found"));
+
+        existingStock.setName(stockDto.getName());
+        existingStock.setPrice(stockDto.getPrice());
+        existingStock.setQuantity(stockDto.getQuantity());
+
+        stockRepository.save(existingStock);
+    }
+
+    @Override
     public List<StockDto> findAllByName(String name){
         List<Stock> entities = stockRepository.findAllByNameEqualsIgnoreCase(name);
         List<StockDto> dtos = new ArrayList<>();
