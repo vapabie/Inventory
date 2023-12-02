@@ -15,6 +15,9 @@ public interface StockService {
 
     List<StockDto> findAllByName(String name);
 
+    void deleteStock(Integer id);
+
+    void updateStock(StockDto stockDto);
 
 
 }
