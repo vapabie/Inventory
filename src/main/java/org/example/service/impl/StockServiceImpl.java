@@ -5,6 +5,7 @@ import org.example.model.Stock;
 import org.example.repository.StockRepository;
 import org.example.service.StockService;
 import org.example.service.mapper.StockMapper;
+import org.example.service.mapper.StoreMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,9 @@ public class StockServiceImpl implements StockService {
 
     @Autowired
     StockMapper stockMapper;
+
+    @Autowired
+    StoreMapper storeMapper;
 
     @Override
     public List<StockDto> findAll(){
@@ -80,8 +84,9 @@ public class StockServiceImpl implements StockService {
         List<StockDto> dtos = new ArrayList<>();
 
         for(Stock s: entities){
-            dtos.add(new StockDto(s.getId(),s.getName(),s.getPrice(),s.getQuantity()));
+            StockDto stockDto = new StockDto(s.getId(), s.getName(), s.getPrice(), s.getQuantity(), storeMapper.entityToDto(s.getStore()));
+            dtos.add(stockDto);
         }
-        return  dtos;
+        return dtos;
     }
 }
