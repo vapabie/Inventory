@@ -5,15 +5,15 @@ import org.example.model.Stock;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {StoreMapper.class})
 public interface StockMapper {
 
+    @Mapping(target = "store", source = "store") // use the property name directly
     StockDto entityToDto(Stock stock);
 
+    @Mapping(target = "store", source = "store") // use the property name directly
     Stock dtoToEntity(StockDto stockDto);
 
     List<StockDto> entityListtoDtoList(List<Stock> stocks);
