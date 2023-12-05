@@ -10,6 +10,7 @@ public class Stock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "STOCK_ID")
     private int id;
 
     @Column(name = "NAME")
@@ -26,6 +27,14 @@ public class Stock {
     private Store store;
 
     public Stock() {
+    }
+
+    public Stock(int id, String name, int price, int quantity, Store store) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.store = store;
     }
 
     public Stock(int id, String name, int price, int quantity) {
