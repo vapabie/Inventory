@@ -11,6 +11,7 @@ public class Store {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column( name = "STORE_ID")
     private int id;
 
     @Column(name = "CITY")
