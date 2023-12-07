@@ -23,6 +23,11 @@ public class StoreServ {
         return storeRepository.save(store);
     }
 
+    public Store findStoreByid(int id){
+        return storeRepository.findById(id)
+                .orElse(null);
+    }
+
     public List<Store> findAllStore(){
         return storeRepository.findAll();
     }
