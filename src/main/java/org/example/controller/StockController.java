@@ -1,55 +1,57 @@
 package org.example.controller;
 
-import org.example.dto.StockDto;
+
 import org.example.model.Stock;
-import org.example.service.StockService;
+import org.example.model.Store;
+
+import org.example.service.StockServ;
+import org.example.service.StoreServ;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("api")
 public class StockController {
 
+    private StockServ stockServ;
+
     @Autowired
-    StockService stockService;
-
-    ArrayList<Stock> stocks;
-
-    @GetMapping("/init")
-    public String init(){
-        stocks = new ArrayList<>();
-
-        stocks.add(new Stock(1, "egg", 70, 720));
-        stocks.add(new Stock(2, "milk", 302, 120));
-
-        return "Success";
+    public StockController(StockServ stockServ){
+        this.stockServ = stockServ;
     }
-
-    @GetMapping("/getstock")
-    public Stock getStock(){
-        Stock s = new Stock(1, "egg", 70, 720);
-        return s;
-    }
-
-    @GetMapping("/getbyname/{name}")
-    public List<StockDto> getbyName(@PathVariable String name){
-        /*List<Stock> found = stocks.stream()
-                .filter(x -> x.getName().equals(Name))
-                .toList();
-
-        return found;*/
-        return stockService.findAllByName(name);
+    @GetMapping("/stocks")
+    public ResponseEntity<List<Stock>> getAllStock(){
+        List<Stock> stocks = stockServ.findAllStore();
+        return new ResponseEntity<>(stocks, HttpStatus.OK);
     }
 
     @PostMapping("/addstock")
-    public List<StockDto> addStock(@RequestBody StockDto stockDto){
-        stockService.saveStock(stockDto);
-        return stockService.findAll();
+    public ResponseEntity<Stock> addStock(@RequestBody Stock stock){
+        Stock stock1 = stockServ.addStock(stock);
+        return  new ResponseEntity<>(stock1, HttpStatus.OK);
     }
 
+    @PostMapping("/update")
+    public ResponseEntity<Stock> updateStock(@RequestBody Stock stock) {
+        Stock updateStock = stockServ.updateStock(stock);
 
+        return new ResponseEntity<>(updateStock, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteStock(@PathVariable Integer id) {
+        try {
+            stockServ.deleteStock(id);
+            return new ResponseEntity<>("Stock deleted successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error deleting stock: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 }
