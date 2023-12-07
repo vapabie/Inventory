@@ -1,51 +1,52 @@
 package org.example.controller;
 
-import org.example.dto.StockDto;
-import org.example.dto.StoreDto;
+
 import org.example.model.Store;
-import org.example.service.StoreService;
+import org.example.service.StoreServ;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/store")
+@RequestMapping("")
 public class StoreController {
 
+
+    private final StoreServ storeServ;
+
+
     @Autowired
-    StoreService storeService;
-
-    ArrayList<Store> stores;
-
-    @GetMapping("/init")
-    public String init(){
-        stores = new ArrayList<>();
-
-        stores.add(new Store(1, "Debrecen",  "x ut 9", "debi@store.com"));
-        stores.add(new Store(2, "Debrecen" ,"z ut 24", "debi@store.com"));
-        stores.add(new Store(3, "Nyiregyháza" ,"t ut 31", "nyiregy@store.com"));
-
-        return "Success";
+    public StoreController(StoreServ storeServ){
+        this.storeServ = storeServ;
     }
 
-
-    @GetMapping("/getstore")
-    public Store getStore(){
-        Store s = new Store(1, "Debrecen" ,"x ut 9", "debi@store.com");
-        return s;
-    }
-
-    @GetMapping("/getbycity/{city}")
-    public List<StoreDto> getByCity(@PathVariable String city){
-        return storeService.findAllByCity(city);
+    @GetMapping("/stores")
+    public ResponseEntity<List<Store>> getAllStores(){
+        List<Store> stores = storeServ.findAllStore();
+        return new ResponseEntity<>(stores, HttpStatus.OK);
     }
 
     @PostMapping("/addstore")
-    public List<StoreDto> addStore(@RequestBody StoreDto storeDto){
-        storeService.saveStore(storeDto);
-        return storeService.findAll();
+    public ResponseEntity<Store> addStore(@RequestBody Store store){
+        Store newStore = storeServ.addStore(store);
+        return new ResponseEntity<>(newStore, HttpStatus.OK);
+    }
+
+    @PutMapping("/updatestore")
+    public ResponseEntity<Store> updateStore(@RequestBody Store store){
+        Store updateStore = storeServ.updateStore(store);
+        return new ResponseEntity<>(updateStore, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/deletestore/{id}")
+    public ResponseEntity<?> deleteStore(@PathVariable("id") int id){
+        storeServ.deleteStore(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
