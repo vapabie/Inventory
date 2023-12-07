@@ -16,10 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("")
 public class StockController {
 
     private StockServ stockServ;
+
+    private StoreServ storeServ;
 
     @Autowired
     public StockController(StockServ stockServ){
@@ -33,18 +35,19 @@ public class StockController {
 
     @PostMapping("/addstock")
     public ResponseEntity<Stock> addStock(@RequestBody Stock stock){
+
         Stock stock1 = stockServ.addStock(stock);
-        return  new ResponseEntity<>(stock1, HttpStatus.OK);
+        return new ResponseEntity<>(stock1, HttpStatus.OK);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/updatestock")
     public ResponseEntity<Stock> updateStock(@RequestBody Stock stock) {
         Stock updateStock = stockServ.updateStock(stock);
 
         return new ResponseEntity<>(updateStock, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deletestock/{id}")
     public ResponseEntity<?> deleteStock(@PathVariable Integer id) {
         try {
             stockServ.deleteStock(id);
