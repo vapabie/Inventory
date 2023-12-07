@@ -58,7 +58,7 @@ public class Stock {
     }
 
     public void setName(String name) {
-        name = name;
+        this.name = name;
     }
 
     public int getPrice() {
@@ -66,7 +66,7 @@ public class Stock {
     }
 
     public void setPrice(int price) {
-        price = price;
+        this.price = price;
     }
 
     public int getQuantity() {
@@ -74,7 +74,7 @@ public class Stock {
     }
 
     public void setQuantity(int quantity) {
-        quantity = quantity;
+        this.quantity = quantity;
     }
 
     public Store getStore() {
