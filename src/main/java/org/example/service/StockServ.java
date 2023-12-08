@@ -2,7 +2,9 @@ package org.example.service;
 
 import jakarta.transaction.Transactional;
 import org.example.model.Stock;
+import org.example.model.Store;
 import org.example.repository.StockRepository;
+import org.example.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,11 @@ public class StockServ {
 
     public List<Stock> findAllStore(){
         return stockRepository.findAll();
+    }
+
+    public Stock findStockById(int id) {
+        return stockRepository.findById(id)
+                .orElse(null); // You can customize the behavior when the stock is not found
     }
 
     public Stock updateStock(Stock stock){
