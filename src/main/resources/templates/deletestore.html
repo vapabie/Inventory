@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Stores Page</title>
+    <title>Delete Store</title>
 </head>
 <body>
-<h2>Stores</h2>
+<h2>Delete Store</h2>
 <table border="1">
     <thead>
     <tr>
@@ -15,30 +15,27 @@
         <th>City</th>
         <th>Address</th>
         <th>Email</th>
-        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
 
-    <tr th:each="store : ${stores}">
+    <tr>
         <td th:text="${store.id}"></td>
         <td th:text="${store.city}"></td>
         <td th:text="${store.address}"></td>
         <td th:text="${store.email}"></td>
-        <td>
-            <button> <a th:href="'/updatestore/' + ${store.id}">Edit</a></button>
-            <button>  <a th:href="'/deletestore/' + ${store.id}">Delete</a></button>
-
-        </td>
     </tr>
     </tbody>
 </table>
 
-<button>
-    <a href="addstore"> Add Store</a></button>
+<!-- Provide a button to confirm the deletion -->
+<form th:action="@{/deletestore/{id}(id=${store.id})}" method="post">
+    <button type="submit">Confirm Delete</button>
+</form>
 
 <button>
-    <a href="stocks"> Go to Stocks</a>
+    <a href="/stores">Cancel</a>
 </button>
+
 </body>
 </html>

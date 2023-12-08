@@ -20,7 +20,7 @@
     </tr>
     </thead>
     <tbody>
-    <!-- Use Thymeleaf to iterate over your list of stores -->
+
     <tr th:each="stock : ${stocks}">
         <td th:text="${stock.id}"></td>
         <td th:text="${stock.name}"></td>
@@ -28,7 +28,7 @@
         <td th:text="${stock.quantity}"></td>
         <td th:text="${stock.store}"></td>
         <td>
-            <!-- Add your actions here, e.g., buttons for edit/delete -->
+
             <button> <a th:href="'/updatestock/' + ${stock.id}">Edit</a></button>
             <button>  <a th:href="'/deletestock/' + ${stock.id}">Delete</a></button>
         </td>
@@ -40,6 +40,10 @@
 
 <button>
     <a href="addstock"> Add Stock</a></button>
+
+<button>
+    <a href="stores"> Go to Stores</a>
+</button>
 
 </body>
 </html>

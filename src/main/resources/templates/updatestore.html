@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update store</title>
+</head>
+<body>
+
+<h2>Update store</h2>
+<form th:action="@{/updatestore/{id}(id=${updatedStore.id})}" th:object="${updatedStore}" method="post">
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" th:field="*{city}" required/>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" th:field="*{address}" required/>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" th:field="*{email}" required/>
+
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>
