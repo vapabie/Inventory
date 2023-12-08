@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Stores Page</title>
+</head>
+<body>
+<h2>Stores</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Use Thymeleaf to iterate over your list of stores -->
+    <tr th:each="store : ${stores}">
+        <td th:text="${store.id}"></td>
+        <td th:text="${store.city}"></td>
+        <td th:text="${store.address}"></td>
+        <td th:text="${store.email}"></td>
+        <td>
+            <!-- Add your actions here, e.g., buttons for edit/delete -->
+            <button>Edit</button>
+            <button>Delete</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
