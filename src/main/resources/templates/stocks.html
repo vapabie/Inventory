@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Stocks Page</title>
+</head>
+<body>
+<h2>Stocks</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price (HUF)</th>
+        <th>Quanity</th>
+        <th>Store</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Use Thymeleaf to iterate over your list of stores -->
+    <tr th:each="stock : ${stocks}">
+        <td th:text="${stock.id}"></td>
+        <td th:text="${stock.name}"></td>
+        <td th:text="${stock.price}"></td>
+        <td th:text="${stock.quantity}"></td>
+        <td th:text="${stock.store}"></td>
+        <td>
+            <!-- Add your actions here, e.g., buttons for edit/delete -->
+            <button>Edit</button>
+            <button>Delete</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
