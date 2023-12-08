@@ -26,9 +26,11 @@ public class StockController {
     private StoreServ storeServ;
 
     @Autowired
-    public StockController(StockServ stockServ){
+    public StockController(StockServ stockServ, StoreServ storeServ){
         this.stockServ = stockServ;
+        this.storeServ = storeServ;
     }
+
     /*
     @GetMapping("/stocks")
     public ResponseEntity<List<Stock>> getAllStock(){
@@ -52,15 +54,19 @@ public class StockController {
 */
     @PostMapping("/addstock")
     public String addStock(@ModelAttribute("newStock") Stock stock) {
-        // Save the store to the database
+
+        Store store = storeServ.findStoreByid(stock.getStore().getId());
+        stock.setStore(store);
         stockServ.addStock(stock);
 
-        // Redirect to the stocks screen
+
         return "redirect:/stocks";
     }
 
     @GetMapping("/addstock")
     public String getAddStockForm(Model model){
+        List<Store> stores = storeServ.findAllStore();
+        model.addAttribute("stores", stores);
         model.addAttribute("newStock", new Stock());
         return "addstock";
     }

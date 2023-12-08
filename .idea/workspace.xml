@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc96e353-c915-45e8-b14b-36a7ad5cc853" name="Changes" comment="Override updateStock and deleteStock">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/mapper/StockMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+    <list default="true" id="fc96e353-c915-45e8-b14b-36a7ad5cc853" name="Changes" comment="Add ui for addstore, updatestore, and deletestore, rewrite methods in StoreController and add navigation between stores and stocks">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/StockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/StockServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/StockServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addstock.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addstock.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/stocks.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/stocks.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +20,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -59,36 +53,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/User/Desktop/webfej/restexample",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "spring.configuration.checksum": "4d604dd8f008145471dc845683399189",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/webfej/restexample&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;4d604dd8f008145471dc845683399189&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "h2"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;h2&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Desktop\Inventory\src\main\resources\templates" />
@@ -132,6 +126,13 @@
       <workItem from="1701439038913" duration="3166000" />
       <workItem from="1701483432871" duration="3007000" />
       <workItem from="1701487413770" duration="5535000" />
+      <workItem from="1701602412819" duration="12232000" />
+      <workItem from="1701708919606" duration="903000" />
+      <workItem from="1701769194731" duration="7590000" />
+      <workItem from="1701804444811" duration="2392000" />
+      <workItem from="1701862429543" duration="10629000" />
+      <workItem from="1701942271381" duration="13985000" />
+      <workItem from="1702027095720" duration="24530000" />
     </task>
     <task id="LOCAL-00001" summary="change uppercase starting letters to lowercase">
       <created>1701350680444</created>
@@ -259,31 +260,241 @@
       <option name="project" value="LOCAL" />
       <updated>1701485374920</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add column name to Store id and ad Store column into the Stock contructor">
+      <created>1701785157129</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1701785157129</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Add store column and add it to the generated methods">
+      <created>1701785311402</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1701785311402</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Add column name to id">
+      <created>1701785345308</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1701785345308</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Add mapping">
+      <created>1701785384003</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1701785384003</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Add StoreMapper">
+      <created>1701785399652</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1701785399652</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Add StoreMapper to StockServiceImpl">
+      <created>1701785474691</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1701785474691</updated>
+    </task>
+    <task id="LOCAL-00025" summary="rename @RequestMapping">
+      <created>1701785522372</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1701785522372</updated>
+    </task>
+    <task id="LOCAL-00026" summary="change List to Optional and add deleteStoreById">
+      <created>1701872345107</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1701872345107</updated>
+    </task>
+    <task id="LOCAL-00027" summary="create new store Service class called StoreServ">
+      <created>1701872390957</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1701872390957</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Deleting file that no longer needed">
+      <created>1701944365366</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1701944365366</updated>
+    </task>
+    <task id="LOCAL-00029" summary="rewriting StoreController methods">
+      <created>1701944430176</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1701944430176</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Add StockServ">
+      <created>1701944968053</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1701944968053</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add deleteStockByid and change list to optional">
+      <created>1701944992924</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1701944992924</updated>
+    </task>
+    <task id="LOCAL-00032" summary="updating setters">
+      <created>1701946865667</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1701946865668</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Rewrite StockController">
+      <created>1701947053269</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1701947053269</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Add findStoreByid method">
+      <created>1701963813142</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1701963813142</updated>
+    </task>
+    <task id="LOCAL-00035" summary="renaming mapppings">
+      <created>1701963847167</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1701963847167</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Add findbyid">
+      <created>1702028332189</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1702028332190</updated>
+    </task>
+    <task id="LOCAL-00037" summary="delete modelmapper">
+      <created>1702041098519</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1702041098519</updated>
+    </task>
+    <task id="LOCAL-00038" summary="add thymeleaf to app.prop">
+      <created>1702041133310</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1702041133310</updated>
+    </task>
+    <task id="LOCAL-00039" summary="add stores.html">
+      <created>1702041158652</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1702041158652</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Add stocks.html">
+      <created>1702041177977</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1702041177977</updated>
+    </task>
+    <task id="LOCAL-00041" summary="update table joining">
+      <created>1702041198431</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1702041198431</updated>
+    </task>
+    <task id="LOCAL-00042" summary="delete ThymeleafConfig.java">
+      <created>1702041212280</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1702041212280</updated>
+    </task>
+    <task id="LOCAL-00043" summary="add findStockById">
+      <created>1702051169021</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1702051169021</updated>
+    </task>
+    <task id="LOCAL-00044" summary="add findByid">
+      <created>1702051198785</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1702051198785</updated>
+    </task>
+    <task id="LOCAL-00045" summary="add ui for stocks, addstock, and updatestock, rewrite methods in controller">
+      <created>1702051263041</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1702051263041</updated>
+    </task>
+    <task id="LOCAL-00046" summary="make delete work in stock">
+      <created>1702057400464</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1702057400464</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Add ui for addstore, updatestore, and deletestore, rewrite methods in StoreController and add navigation between stores and stocks">
+      <created>1702058936654</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1702058936654</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change uppercase starting letters to lowercase" />
-    <MESSAGE value="Add StoreDto" />
-    <MESSAGE value="Add StoreRepository" />
-    <MESSAGE value="Add StoreService interface" />
-    <MESSAGE value="Spilt address attributum into city and address" />
-    <MESSAGE value="change uppercase Name into lowercase" />
-    <MESSAGE value="change findallbyaddress to findallbycity" />
-    <MESSAGE value="change email to city" />
-    <MESSAGE value="Add city to StoreDto" />
-    <MESSAGE value="Add findByID" />
-    <MESSAGE value="Add StoreServiceImpl" />
-    <MESSAGE value="Change uppercase Name to lowercase" />
-    <MESSAGE value="Add StoreController" />
-    <MESSAGE value="add Storedto to stockdto" />
-    <MESSAGE value="Add thymeleaf dependency" />
-    <MESSAGE value="Add thymeleaf Configuration" />
-    <MESSAGE value="Add deleteStock and updateStock Methods" />
-    <MESSAGE value="Override updateStock and deleteStock" />
-    <option name="LAST_COMMIT_MESSAGE" value="Override updateStock and deleteStock" />
+    <MESSAGE value="Add StoreMapper" />
+    <MESSAGE value="Add StoreMapper to StockServiceImpl" />
+    <MESSAGE value="rename @RequestMapping" />
+    <MESSAGE value="change List to Optional and add deleteStoreById" />
+    <MESSAGE value="create new store Service class called StoreServ" />
+    <MESSAGE value="Deleting file that no longer needed" />
+    <MESSAGE value="rewriting StoreController methods" />
+    <MESSAGE value="Add StockServ" />
+    <MESSAGE value="add deleteStockByid and change list to optional" />
+    <MESSAGE value="updating setters" />
+    <MESSAGE value="Rewrite StockController" />
+    <MESSAGE value="Add findStoreByid method" />
+    <MESSAGE value="renaming mapppings" />
+    <MESSAGE value="Add findbyid" />
+    <MESSAGE value="delete modelmapper" />
+    <MESSAGE value="add thymeleaf to app.prop" />
+    <MESSAGE value="add stores.html" />
+    <MESSAGE value="Add stocks.html" />
+    <MESSAGE value="update table joining" />
+    <MESSAGE value="delete ThymeleafConfig.java" />
+    <MESSAGE value="add findStockById" />
+    <MESSAGE value="add findByid" />
+    <MESSAGE value="add ui for stocks, addstock, and updatestock, rewrite methods in controller" />
+    <MESSAGE value="make delete work in stock" />
+    <MESSAGE value="Add ui for addstore, updatestore, and deletestore, rewrite methods in StoreController and add navigation between stores and stocks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ui for addstore, updatestore, and deletestore, rewrite methods in StoreController and add navigation between stores and stocks" />
   </component>
 </project>
