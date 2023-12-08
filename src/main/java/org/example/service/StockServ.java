@@ -16,6 +16,8 @@ public class StockServ {
 
     private StockRepository stockRepository;
 
+    private StoreRepository storeRepository;
+
     @Autowired
     public StockServ(StockRepository stockRepository){
         this.stockRepository = stockRepository;
@@ -25,7 +27,7 @@ public class StockServ {
         return stockRepository.save(stock);
     }
 
-    public List<Stock> findAllStore(){
+    public List<Stock> findAllStocks(){
         return stockRepository.findAll();
     }
 

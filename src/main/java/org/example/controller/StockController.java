@@ -87,7 +87,7 @@ public class StockController {
 
         return "updatestock";
     }
-
+/*
     @DeleteMapping("/deletestock/{id}")
     public ResponseEntity<?> deleteStock(@PathVariable Integer id) {
         try {
@@ -96,6 +96,19 @@ public class StockController {
         } catch (Exception e) {
             return new ResponseEntity<>("Error deleting stock: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+*/
+    @PostMapping("/deletestock/{id}")
+    public String deleteStockConfirmation(@PathVariable Integer id) {
+        stockServ.deleteStock(id);
+        return "redirect:/stocks";
+    }
+
+    @GetMapping("/deletestock/{id}")
+    public String getDeleteStockConfirmation(@PathVariable Integer id, Model model) {
+        Stock stock = stockServ.findStockById(id);
+        model.addAttribute("stock", stock);
+        return "deletestock";
     }
 
 }

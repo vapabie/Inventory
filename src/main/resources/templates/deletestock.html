@@ -4,42 +4,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Stocks Page</title>
+    <title>Delete Stock</title>
 </head>
 <body>
-<h2>Stocks</h2>
+<h2>Delete Stock</h2>
 <table border="1">
     <thead>
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Price (HUF)</th>
-        <th>Quanity</th>
+        <th>Quantity</th>
         <th>Store</th>
-        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-    <!-- Use Thymeleaf to iterate over your list of stores -->
-    <tr th:each="stock : ${stocks}">
+    <!-- Display the details of the selected stock -->
+    <tr>
         <td th:text="${stock.id}"></td>
         <td th:text="${stock.name}"></td>
         <td th:text="${stock.price}"></td>
         <td th:text="${stock.quantity}"></td>
         <td th:text="${stock.store}"></td>
-        <td>
-            <!-- Add your actions here, e.g., buttons for edit/delete -->
-            <button> <a th:href="'/updatestock/' + ${stock.id}">Edit</a></button>
-            <button>  <a th:href="'/deletestock/' + ${stock.id}">Delete</a></button>
-        </td>
     </tr>
     </tbody>
 </table>
 
-
+<!-- Provide a button to confirm the deletion -->
+<form th:action="@{/deletestock/{id}(id=${stock.id})}" method="post">
+    <button type="submit">Confirm Delete</button>
+</form>
 
 <button>
-    <a href="addstock"> Add Stock</a></button>
-
+    <a href="/stocks">Cancel</a>
+</button>
 </body>
 </html>
