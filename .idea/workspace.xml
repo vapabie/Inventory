@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc96e353-c915-45e8-b14b-36a7ad5cc853" name="Changes" comment="Add ui for addstore, updatestore, and deletestore, rewrite methods in StoreController and add navigation between stores and stocks">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/StockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Stock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addstock.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addstock.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/stocks.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/stocks.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

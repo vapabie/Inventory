@@ -81,6 +81,8 @@ public class StockController {
 
     @PostMapping("/updatestock/{id}")
     public String updateStock(@PathVariable Integer id, @ModelAttribute("updatedStock") Stock stock){
+        Store store = storeServ.findStoreByid(stock.getStore().getId());
+        stock.setStore(store);
         stockServ.updateStock(stock);
         return "redirect:/stocks";
     }
@@ -88,7 +90,8 @@ public class StockController {
     @GetMapping("/updatestock/{id}")
     public String getUpdateStockForm(@PathVariable Integer id, Model model) {
         Stock stock = stockServ.findStockById(id);
-
+        List<Store> stores = storeServ.findAllStore();
+        model.addAttribute("stores", stores);
         model.addAttribute("updatedStock", stock);
 
         return "updatestock";

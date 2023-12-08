@@ -18,7 +18,9 @@
     <input type="number" id="quantity" name="quantity" th:field="*{quantity}" required/>
 
     <label for="store">Store:</label>
-    <input type="text" id="store" name="store" th:field="*{store}" />
+    <select id="store" th:field="*{store.id}" >
+        <option th:each="store : ${stores}" th:value="${store.id}" th:text="${store.city + ' ' + store.address}"></option>
+    </select>
   <button type="submit">Update</button>
 </form>
 
