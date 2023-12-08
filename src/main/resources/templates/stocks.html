@@ -29,11 +29,14 @@
         <td th:text="${stock.store}"></td>
         <td>
             <!-- Add your actions here, e.g., buttons for edit/delete -->
-            <button>Edit</button>
+            <button> <a th:href="'/updatestock/' + ${stock.id}">Edit</a></button>
             <button>Delete</button>
         </td>
     </tr>
     </tbody>
 </table>
+
+<button>
+    <a href="addstock"> Add Stock</a></button>
 </body>
 </html>
