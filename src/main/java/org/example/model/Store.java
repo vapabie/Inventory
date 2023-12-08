@@ -1,9 +1,10 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "STORE")
@@ -21,6 +22,9 @@ public class Store {
 
     @Column(name = "EMAIL")
     private String email;
+    @JsonIgnore
+    @OneToMany(mappedBy = "store")
+    private Set<Stock> storeStock = new HashSet<>();
 
     public Store() {
     }

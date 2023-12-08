@@ -23,7 +23,7 @@ public class Stock {
     private int quantity;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "STORE_ID")
+    @JoinColumn(name = "STORE_ID",referencedColumnName = "STORE_ID")
     private Store store;
 
     public Stock() {
