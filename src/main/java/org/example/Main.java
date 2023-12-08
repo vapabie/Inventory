@@ -13,6 +13,4 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
-    @Bean
-    public ModelMapper modelMapper(){return new ModelMapper();}
 }
